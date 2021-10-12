@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const { Mongoose } = require('mongoose');
 
-Mongoose.connect(process.env.MONGO_DB)
+mongoose.connect(process.env.MONGO_DB)
   .then(() => {
     console.log("MONGODB CONNECTED")
   })
