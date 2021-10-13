@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
@@ -5,8 +7,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const { Mongoose } = require('mongoose');
+var usersRouter = require('./routes/user/userRouter');
+
 
 mongoose.connect(process.env.MONGO_DB)
   .then(() => {

@@ -3,14 +3,16 @@ const mongoose = require('mongoose');
 commentsSchema = new mongoose.Schema (
     {   
         originalPoster: {
-            type: String
+            type: mongoose.Schema.ObjectId,
+            ref: "posts"
         },
         user: {
-            type: String
+            type: mongoose.Schema.ObjectId,
+            ref: "user"
         },
         comment: {
             type: String
-        }
+        },
     },
     {
         timestamps: true

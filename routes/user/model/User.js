@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema (
     {
         fistName : {
             type: String
@@ -19,9 +19,8 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String
         },
-        posts: [{ type: mongoose.Schema.Types.String}],
-        comments: [{ type: mongoose.Schema.Types.String}]
-        
+        posts: [{ type: mongoose.Schema.ObjectId, ref: "posts" }],
+        comments: [{ type: mongoose.Schema.ObjectId, ref: "comments" }]
     },
     {
         timestamps: true
