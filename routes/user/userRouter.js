@@ -3,15 +3,18 @@ const router = express.Router();
 
 const { 
     register,
-    login 
+    login, 
+    getUserInfo
 } = require('./controller/userController')
 
 const {
-    jwtMiddleware
+    jwtMiddleware, validateCreateData, validateLoginData, checkIsEmpty, checkIsUndefined
 } = require('./lib/index')
 
-router.post('/create-user', register);
+router.post('/create-user', checkIsUndefined, checkIsEmpty, validateCreateData, register);
 
-router.post('/login', login)
+router.post('/login', checkIsUndefined, checkIsEmpty, validateLoginData, login);
+
+router.get('/', jwtMiddleware, getUserInfo);
 
 module.exports = router
